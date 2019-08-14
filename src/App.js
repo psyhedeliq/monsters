@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CardList } from './components/card-list/card-list.component';
+import { SearchBox } from './components/search-box/search-box.component';
 
 import './App.css';
 
@@ -26,13 +27,9 @@ class App extends Component {
     );
     return (
       <div className='App'>
-        <input
-          type='search'
+        <SearchBox
           placeholder='search monsters'
-          onChange={
-            e => this.setState({ searchField: e.target.value })
-            // whenever setState is called and the property changed react re-renders our component
-          }
+          handleChange={e => this.setState({ searchField: e.target.value })}
         />
         <CardList monsters={filteredMonsters} />
       </div>
